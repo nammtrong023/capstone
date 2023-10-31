@@ -11,13 +11,15 @@ const uploadImage = async (req, res) => {
     }
 
     const imageNames = files.map((file) => file.originalname);
+    console.log('uploadImage ~ imageNames:', imageNames);
 
     const imageData = imageNames.map((imageName) => ({
         name: imageName,
         ownerId: userId,
     }));
+    console.log('imageData ~ imageData:', imageData);
 
-    const images = await prisma.image.createMany({
+    await prisma.image.createMany({
         data: imageData,
     });
 
@@ -55,6 +57,10 @@ const getListImage = async (req, res) => {
 const getImageById = async (req, res) => {
     const { imageId } = req.params;
 
+    if (!imageId) {
+        return res.status(404).send('Vui lòng nhập image id');
+    }
+
     const image = await prisma.image.findFirst({
         where: {
             id: Number(imageId),
@@ -90,6 +96,10 @@ const getImageByUserId = async (req, res) => {
 
 const deleteImage = async (req, res) => {
     const { imageId } = req.params;
+
+    if (!imageId) {
+        return res.status(404).send('Vui lòng nhập image id');
+    }
 
     try {
         const result = await prisma.image.delete({

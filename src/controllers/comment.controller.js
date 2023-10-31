@@ -7,7 +7,7 @@ const createComment = async (req, res) => {
     const currentUserId = await getCurrentUserId(token);
 
     if (!content && !imageId) {
-        return res.status(400).send('Phải có content và imageId');
+        return res.status(400).send('Vui lòng nhập content và imageId');
     }
 
     const isExistingImage = await prisma.image.findUnique({
