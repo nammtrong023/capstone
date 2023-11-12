@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "f475f159-bcb8-45d4-a0ac-3d9fc6eeef5b",
+		"name": "capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26243495"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"nam trong\",\r\n    \"email\": \"trongnam1@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"age\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"trongnam1@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by image id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/users/get-by-image-id/10/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"get-by-image-id",
+								"10",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload-profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "image",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/D:/Downloads/coffe/ice-coffee.png",
+										"/D:/Downloads/coffe/white mocha.png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/images/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"images",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/images?name=white",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"images"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "white"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/images/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"images",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by user id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/images/get-by-user-id/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"images",
+								"get-by-user-id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/images/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"images",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "create comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRyb25nbmFtMUBnbWFpbC5jb20iLCJuYW1lIjoibmFtIHRyb25nIiwicGFzc3dvcmQiOiIkMmEkMTAkMHB6ZlRsOE0xRm5DWU1JakNFU0MyT3MyWGVtMVJla1lHdk9qZDhkenVqYmY1MlFQeTZ5SkMiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTMxVDE3OjEwOjE2Ljc0OVoifX0sImlhdCI6MTY5ODc3MjIyNCwiZXhwIjoxNjk4Nzc1ODI0fQ.cryFuvVKZ53vFXOt55cmu3YceDCG4i6Vq8KT1nh38GA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"123\",\r\n    \"imageId\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "save-image",
+			"item": [
+				{
+					"name": "save-image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImRhdGEiOnsiaWQiOjEsImVtYWlsIjoidHJvbmduYW0xQGdtYWlsLmNvbSIsIm5hbWUiOiJuYW0gdHJvbmciLCJhZ2UiOjEyLCJ1c2VyQXZhdGFyIjpudWxsLCJwYXNzd29yZCI6IiQyYSQxMCRQM2pjQ0Vsc09tdm9SR2lsMWhFcmd1NzZzTE1zeXIyT29nUHNubDhyOUNTQzJSY1lIWjBGNiIsImNyZWF0ZWRBdCI6IjIwMjMtMTEtMTJUMDY6MjI6MzIuMTQ3WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTEtMTJUMDY6MjI6MzIuMTQ3WiJ9fSwiaWF0IjoxNjk5NzcwMjE5LCJleHAiOjE2OTk3NzM4MTl9.l__CzvOA1lHU8VgRCcdbbmpM1REH-3zSsSMLgR6wHFY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/save-image/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"save-image",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

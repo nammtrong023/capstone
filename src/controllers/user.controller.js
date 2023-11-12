@@ -4,10 +4,10 @@ import { createToken } from '../config/jwt.js';
 import { getCurrentUserId } from '../utils/get-current-user-id.js';
 
 const signUp = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, age, password } = req.body;
 
-    if (!name || !email || !password) {
-        return res.send('Vui lòng nhập đủ name, email, password');
+    if (!name || !email || !password || !age) {
+        return res.send('Vui lòng nhập đủ name, email, password, age');
     }
 
     const isExistingEmail = await prisma.user.findUnique({
@@ -26,6 +26,7 @@ const signUp = async (req, res) => {
         data: {
             name,
             email,
+            age,
             password: hashPassword,
         },
     });
@@ -98,4 +99,33 @@ const getUserByImageId = async (req, res) => {
     return res.status(200).send(user);
 };
 
-export { login, signUp, getUsers, getUserByImageId };
+const updateUserProfile = async (req, res) => {
+    const { token } = req.headers;
+    const { name, age } = req.body;
+    const file = req.file;
+
+    if (!file) {
+        return res.status(400).send('File không hợp lệ');
+    }
+
+    if (!name || !age) {
+        return res.status(400).send('Vui lòng nhập name và age');
+    }
+
+    const currentUserId = await getCurrentUserId(token);
+
+    const currentUser = await prisma.user.update({
+        where: {
+            id: currentUserId,
+        },
+        data: {
+            name,
+            age: parseInt(age),
+            userAvatar: file.originalname,
+        },
+    });
+
+    return res.status(200).json(currentUser);
+};
+
+export { login, signUp, getUsers, getUserByImageId, updateUserProfile };

@@ -1,23 +1,29 @@
 import prisma from '../config/db.js';
 import { getCurrentUserId } from '../utils/get-current-user-id.js';
 
-const uploadImage = async (req, res) => {
+const uploadImages = async (req, res) => {
     const { token } = req.headers;
-    const files = req.files;
     const userId = await getCurrentUserId(token);
+
+    const files = req.files;
+    const { description } = req.body;
 
     if (!files) {
         return res.status(400).send('Files không hợp lệ');
     }
 
+    if (!description) {
+        return res.status(400).send('Vui lòng nhập mô tả');
+    }
+
     const imageNames = files.map((file) => file.originalname);
-    console.log('uploadImage ~ imageNames:', imageNames);
 
     const imageData = imageNames.map((imageName) => ({
         name: imageName,
+        url: imageName,
+        description,
         ownerId: userId,
     }));
-    console.log('imageData ~ imageData:', imageData);
 
     await prisma.image.createMany({
         data: imageData,
@@ -114,4 +120,4 @@ const deleteImage = async (req, res) => {
     }
 };
 
-export { uploadImage, getListImage, getImageById, getImageByUserId, deleteImage };
+export { uploadImages, getListImage, getImageById, getImageByUserId, deleteImage };

@@ -6,12 +6,12 @@ import {
     getImageById,
     getImageByUserId,
     getListImage,
-    uploadImage,
+    uploadImages,
 } from '../controllers/image.controller.js';
 
 const imageRoute = express.Router();
 
-imageRoute.post('/upload', khoaApi, upload.array('files'), uploadImage);
+imageRoute.post('/upload', khoaApi, upload.array('files'), uploadImages);
 imageRoute.get('', khoaApi, getListImage);
 imageRoute.get('/:imageId', khoaApi, getImageById);
 imageRoute.get('/get-by-user-id/:userId', khoaApi, getImageByUserId);
